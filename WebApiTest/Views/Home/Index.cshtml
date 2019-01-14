@@ -1,0 +1,94 @@
+﻿@{
+    ViewBag.Title = "jQuery Post Call To Web API 2 Controller";
+}
+<title>@ViewBag.Title</title>
+
+<h2 style="background-color: Yellow;color: Blue; text-align: center; font-style: oblique">jQuery Post Call To Web API 2 Controller</h2>
+
+<style>
+    .button {
+        background-color: #4CAF50;
+        border: none;
+        color: white;
+        padding: 15px 32px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 16px;
+        margin: 4px 2px;
+        cursor: pointer;
+    }
+
+    .button4 {
+        border-radius: 9px;
+    }
+
+    input[type=text], select {
+        width: 20%;
+        padding: 12px 20px;
+        margin: 10px 0;
+        display: inline-block;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        box-sizing: border-box;
+        align-content: center;
+        align-self: center;
+    }
+
+    .bootbox-alert div div div button.btn-primary {
+        background-color: green;
+        font-size: 20px;
+    }
+
+    .bootbox-body {
+        font-size: 20px;
+        color: #f40;
+    }
+</style>
+
+<fieldset>
+    <legend style="color: Blue">Get Updated Time</legend>
+
+    <input type="text" id="txtName" placeholder="Enter Your Name...." />
+    <input type="number" id="Id" placeholder="Enter Your Name...." />
+    <input type="text" id="LastName" placeholder="Enter Your LastName...." />
+    <input type="text" id="MiddleName" placeholder="Enter Your LastName...." />
+    <input type="button" id="btnGet" class="button button4" value="Show Time" />
+
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+    <script src="bootbox.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootbox.js/4.4.0/bootbox.min.js">
+
+    </script>
+
+    <script type="text/javascript">
+
+        $(function () {
+            $("#btnGet").click(function () {
+                var people = '{"FirstName":"' + $('#txtName').val() + '", "LastName":"' + $('#LastName').val() + '", "MiddleName":"' + $('#MiddleName').val() + '", "Id":"' + $('#Id').val() + '" }'; // assign firstname from textbox. 
+                //var pipi = '{LastName: "' + $("#LastName").val() + '"';
+                $.ajax({
+                    type: "POST",
+                    url: "/api/People/GetTime",
+                    data: people,   
+                    contentType: "application/json; charset=utf-8",
+                    dataType: "json",
+                    success: function (response) {
+                        bootbox.alert("Hi your id is, " + response.Id + response.FirstName + response.LastName + response.MiddleName + ".\nCurrent Date and Time Is: " + response.DateTime);
+                    },
+                    failure: function (response) {
+                        bootbox.alert(response.responseText);
+                    },
+                    error: function (response) {
+                        bootbox.alert(response.responseText);
+                    }
+                });
+            });
+        });
+    </script>
+
+</fieldset>  
