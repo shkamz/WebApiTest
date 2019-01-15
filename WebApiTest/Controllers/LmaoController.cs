@@ -11,7 +11,7 @@ namespace WebApiTest.Controllers
         // GET: Lmao
         public ActionResult Index()
         {
-            return View();
+            return View(); ;
         }
     }
 }
