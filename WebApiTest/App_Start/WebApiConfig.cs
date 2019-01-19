@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web.Http;
+using WebApiTest.Models;
 
 namespace WebApiTest
 {
@@ -9,6 +10,10 @@ namespace WebApiTest
     {
         public static void Register(HttpConfiguration config)
         {
+
+            config.Formatters.Add(new BrowserJsonFormatter());
+
+
             // Web API configuration and services
 
             // Web API routes

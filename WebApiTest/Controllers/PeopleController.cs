@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net;
@@ -13,11 +15,11 @@ namespace WebApiTest.Controllers
 
         List<People> ppl = new List<People>();
 
-        /*public PeopleController()
+        public PeopleController()
         {
-            ppl.Add(new People { FirstName = "LALA", LastName = "WAKAKA" , Id = 1});
-            ppl.Add(new People { FirstName = "LALA", LastName = "WAKAKA" });
-        }*/
+            ppl.Add(new People { FirstName = new[] {"LALA"}, LastName = "WAKAKA" , Id = 1});
+            ppl.Add(new People { FirstName = new[] { "LALA", "haha" }, LastName = "WAKAKA" });
+        }
 
         
         [Route("api/People/GetTime")]
@@ -38,7 +40,7 @@ namespace WebApiTest.Controllers
 
             foreach (var p in ppl)
             {
-                output.Add(p.FirstName);
+                //output.Add(p.FirstName);
             }
 
             return output;
@@ -47,13 +49,21 @@ namespace WebApiTest.Controllers
         // GET: api/People
         public List<People> Get()
         {
+            //string json = JsonConvert.SerializeObject(ppl, Formatting.Indented);
+            //Console.WriteLine(json);
+
+            //People deserializedProduct = JsonConvert.DeserializeObject<People>(json);
+
+
+            //JToken.Parse(ppl).ToList();
             return ppl;
+            
         }
 
         // GET: api/People/5
-        public People Get(string id)
+        public People Get(int id)
         {
-            return ppl.Where(x => x.FirstName == id).FirstOrDefault();
+            return ppl.Where(x => x.Id == id).FirstOrDefault();
         }
 
         // POST: api/People

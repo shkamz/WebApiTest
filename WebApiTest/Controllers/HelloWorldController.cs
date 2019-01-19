@@ -28,11 +28,11 @@ namespace WebApiTest.Controllers
 
         List<People> ppl = new List<People>();
 
-        public HelloWorldController()
-        {
-            ppl.Add(new People { FirstName = "LALA", LastName = "WAKAKA", Id = 1 });
-            ppl.Add(new People { FirstName = "LALA", LastName = "WAKAKA" });
-        }
+        //public HelloWorldController()
+        //{
+        //    ppl.Add(new People { FirstName = "LALA", LastName = "WAKAKA", Id = 1 });
+        //    ppl.Add(new People { FirstName = "LALA", LastName = "WAKAKA" });
+        //}
 
         public ActionResult Return()
         {

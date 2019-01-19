@@ -11,12 +11,12 @@ namespace WebApiTest.Controllers
     {
         List<People> ppl = new List<People>();
 
-        public TestController()
-        {
-            ppl.Add(new People { FirstName = "LALA", LastName = "WAKAKA" , Id = 1});
-            ppl.Add(new People { FirstName = "LALA", LastName = "WAKAKA" });
-            ppl.Add(new People { FirstName = "Lmao", LastName = "Anjir" });
-        }
+        //public TestController()
+        //{
+        //    ppl.Add(new People { FirstName = "LALA", LastName = "WAKAKA" , Id = 1});
+        //    ppl.Add(new People { FirstName = "LALA", LastName = "WAKAKA" });
+        //    ppl.Add(new People { FirstName = "Lmao", LastName = "Anjir" });
+        //}
 
 
         // GET: Test

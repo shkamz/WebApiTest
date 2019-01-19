@@ -8,7 +8,7 @@ namespace WebApiTest.Models
     public class People
     {
         public int Id { get; set; } = 0;
-        public string FirstName { get; set; } = "";
+        public string[] FirstName { get; set; } 
 
         public string LastName { get; set; } = "";
 
