@@ -19,7 +19,6 @@ namespace WebApiTest.Controllers
         {
             ppl.Add(new People { FirstName = "LALA", LastName = "WAKAKA", Id = 1 });
             
-
         }
         
 
