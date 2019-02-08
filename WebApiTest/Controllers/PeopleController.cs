@@ -17,9 +17,11 @@ namespace WebApiTest.Controllers
 
         public PeopleController()
         {
-            ppl.Add(new People { FirstName = new[] {"LALA"}, LastName = "WAKAKA" , Id = 1});
-            ppl.Add(new People { FirstName = new[] { "LALA", "haha" }, LastName = "WAKAKA" });
+            ppl.Add(new People { FirstName = "LALA", LastName = "WAKAKA", Id = 1 });
+            ppl.Add(new People { FirstName = "LALA", LastName = "WAKAKA", Id = 2 });
+
         }
+        
 
         
         [Route("api/People/GetTime")]
@@ -67,9 +69,22 @@ namespace WebApiTest.Controllers
         }
 
         // POST: api/People
-        public void Post(People val)
+        //[ProducesResponseType(404)]
+        public HttpResponseMessage Post(People val)
         {
-            ppl.Add(val);
+            val.FirstName = "jaja";
+
+            if (ModelState.IsValid)
+            {
+                // Do something with the product (not shown).
+                ppl.Add(val);
+                return new HttpResponseMessage(HttpStatusCode.OK);
+            }
+            else
+            {
+                return Request.CreateErrorResponse(HttpStatusCode.BadRequest, ModelState);
+            }
+            
         }
 
         // PUT: api/People/5
@@ -77,10 +92,10 @@ namespace WebApiTest.Controllers
         {
         }
 
-        // DELETE: api/People/5
-        public void Delete(int id)
-        {
+        //// DELETE: api/People/5
+        //public void Delete(int id)
+        //{
            
-        }
+        //}
     }
 }
