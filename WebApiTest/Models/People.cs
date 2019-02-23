@@ -21,5 +21,6 @@ namespace WebApiTest.Models
         public string DateTime { get; set; }
         
         public string Lol {get; set; }
+        public string NoName { get; set; }
     }
 }
