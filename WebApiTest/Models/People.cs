@@ -19,5 +19,7 @@ namespace WebApiTest.Models
         public string MiddleName { get; set; } = ""; 
 
         public string DateTime { get; set; }
+        
+        public string Lol {get; set; };
     }
 }
