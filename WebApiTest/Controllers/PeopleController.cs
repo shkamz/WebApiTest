@@ -12,7 +12,6 @@ namespace WebApiTest.Controllers
 {
     public class PeopleController : ApiController
     {
-
         List<People> ppl = new List<People>();
 
         public PeopleController()
